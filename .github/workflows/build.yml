@@ -9,6 +9,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Unpack project
         run: unzip -q -o PercyAI-project.zip
+      - name: Patch engine for new llama.cpp
+        run: sed -i '/use_mmap/d' app/src/main/cpp/percy_jni.cpp
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '17' }
       - name: Install NDK and CMake
