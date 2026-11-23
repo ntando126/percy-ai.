@@ -21,6 +21,7 @@ jobs:
         run: git clone --depth 1 --branch v1.0.0 https://github.com/ggml-org/llama.cpp app/src/main/cpp/llama.cpp
       - name: Fetch speech model
         run: |
+          mkdir -p app/src/main/assets
           wget -q https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
           unzip -q vosk-model-small-en-us-0.15.zip
           mv vosk-model-small-en-us-0.15 app/src/main/assets/model-en
